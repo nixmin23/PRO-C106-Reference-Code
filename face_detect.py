@@ -9,13 +9,13 @@ face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 faces = face_cascade.detectMultiScale(gray,1.1, 5)
 
-cv2.imwrite("Grayface.gif",gray)
-
 print(len(faces))
 
 for (x,y,w,h) in faces:
-       cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)    
-      # Crop the image to save the face image.
+       
+       cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)  
+
+       # Crop the image to save the face image.
        roi_color = img[y:y+h, x:x+w]
        cv2.imwrite("face.jpg",roi_color)
               
